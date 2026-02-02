@@ -2,8 +2,14 @@ import requests
 from config import TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_IDS, ALERT_TEMPLATES
 from database import fetch_all_phone_numbers
 
+# Validate token is set
+if not TELEGRAM_BOT_TOKEN:
+    print("[WARNING] TELEGRAM_BOT_TOKEN is not set!")
+    print("Please set it as an environment variable or in config.py")
+    print("See SECURITY_SETUP.md for instructions")
+
 # Telegram Bot API endpoint
-TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage" if TELEGRAM_BOT_TOKEN else None
 
 
 def send_telegram_message(chat_id, message):
@@ -15,6 +21,10 @@ def send_telegram_message(chat_id, message):
     Returns:
         bool: True if sent successfully, False otherwise
     """
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_API_URL:
+        print("[ERROR] Telegram bot token not configured. Cannot send message.")
+        return False
+    
     data = {
         "chat_id": chat_id,
         "text": message,

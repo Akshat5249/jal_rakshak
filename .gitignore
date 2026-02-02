@@ -23,6 +23,7 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+trigger/.env
 
 # IDE
 .vscode/
@@ -45,8 +46,8 @@ jal-spotter-dash/build/
 logs/
 
 # Sensitive config (keep structure but not secrets)
-# Note: config.py contains Telegram tokens - consider using env vars in production
-# trigger/config.py
+# Note: config.py contains Telegram tokens - NEVER commit this file!
+trigger/config.py
 
 # Model files (large - consider git-lfs or external storage)
 # Uncomment if you don't want to commit large files
