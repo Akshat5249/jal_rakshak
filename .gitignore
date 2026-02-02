@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+jal-spotter-dash/dist/
+jal-spotter-dash/.vite/
+jal-spotter-dash/build/
+
+# Logs
+*.log
+logs/
+
+# Sensitive config (keep structure but not secrets)
+# Note: config.py contains Telegram tokens - consider using env vars in production
+# trigger/config.py
+
+# Model files (large - consider git-lfs or external storage)
+# Uncomment if you don't want to commit large files
+# *.joblib
+# *.pkl
+# *.xlsx
+
+# Vercel
+.vercel
+
+# Temporary files
+*.tmp
+*.temp
